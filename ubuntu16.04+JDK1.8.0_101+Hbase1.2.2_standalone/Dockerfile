@@ -14,5 +14,5 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	
 	# Download HBase
 	&& wget http://apache.claz.org/hbase/1.2.3/hbase-1.2.3-bin.tar.gz \
-	&& tar xzvf hbase-1.2.3-bin \
-	&& cd hbase-1.2.3 \
+	&& tar xzvf hbase-1.2.3-bin.tar.gz \
+	&& cd hbase-1.2.3-bin \
