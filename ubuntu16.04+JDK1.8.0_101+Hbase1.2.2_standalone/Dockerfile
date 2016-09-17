@@ -17,16 +17,16 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& apt-get update  \
 	
 	# By default, HBase ships configured for standalone mode. In this mode of operation, a single JVM hosts the HBase Master, an HBase Region Server, and a ZooKeeper quorum peer. In order to run HBase in standalone mode, you must install the HBase Master package:
-	&& apt-get install -y hbase-master \
+	&& apt-get --allow-unauthenticated install -y hbase-master \
 	&& service hbase-master start \
 	
 	# Installing and Starting the HBase Thrift Server
-	&& apt-get install -y hbase-thrift \
+	&& apt-get --allow-unauthenticated install -y hbase-thrift \
 	&& service hbase-thrift start \
 
 	# To verify that the standalone installation is operational, visit http://localhost:60010. The list of Region Servers at the bottom of the page should include one entry for your local machine.
 	#Installing and Configuring REST
-	&& apt-get install -y hbase-rest \
+	&& apt-get --allow-unauthenticated install -y hbase-rest \
 
 	# The script starts the server by default on port 8080. 
 	&& service hbase-rest start \
