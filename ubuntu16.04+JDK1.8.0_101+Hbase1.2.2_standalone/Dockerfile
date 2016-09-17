@@ -16,6 +16,9 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& mv cloudera.list /etc/apt/sources.list.d/ \
 	&& apt-get update  \
 	
+	# Install Hbase package
+	&& apt-get --allow-unauthenticated install -y hbase \
+	
 	# By default, HBase ships configured for standalone mode. In this mode of operation, a single JVM hosts the HBase Master, an HBase Region Server, and a ZooKeeper quorum peer. In order to run HBase in standalone mode, you must install the HBase Master package:
 	&& apt-get --allow-unauthenticated install -y hbase-master \
 	&& service hbase-master start \
