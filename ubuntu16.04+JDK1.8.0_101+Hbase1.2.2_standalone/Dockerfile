@@ -1,11 +1,11 @@
 # This docker file is for Hbase1.2.0 standalone.
 FROM ubuntu:16.04
 
-ARG JDK_VERSION=jdk-8u101
-ARG JDK_PACKAGE=$JDK_VERSION-linux-x64.tar.gz
-ARG JDK_INSTALL_PATH=/usr/lib/java/
-ENV JAVA_HOME $JDK_INSTALL_PATH/jdk1.8.0_101
-ENV PATH $JAVA_HOME/bin:$PATH
+ARG JDK_VERSION=jdk-8u101 \
+    JDK_PACKAGE=$JDK_VERSION-linux-x64.tar.gz \
+    JDK_INSTALL_PATH=/usr/lib/java/
+ENV JAVA_HOME=$JDK_INSTALL_PATH/jdk1.8.0_101 \
+    PATH=$JAVA_HOME/bin:$PATH
 
 
 MAINTAINER Xianyi Ye <https://cn.linkedin.com/in/yexianyi>
@@ -24,7 +24,7 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& rm ./$JDK_PACKAGE \
 
 	# Install HBase
-	&& cd /home
+	&& cd /home \
 	&& wget http://apache.claz.org/hbase/1.2.3/hbase-1.2.3-bin.tar.gz \
 	&& tar xzvf hbase-1.2.3-bin.tar.gz \
 	&& rm -f hbase-1.2.3-bin.tar.gz \
