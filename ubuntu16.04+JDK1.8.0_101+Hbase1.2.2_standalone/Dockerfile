@@ -13,7 +13,7 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& cd /usr/lib/java \
 	&& wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u101-b13/$JDK_PACKAGE \
 	&& tar -xzvf $JDK_PACKAGE \
-	&& rm ./$JDK_PACKAGE
+	&& rm ./$JDK_PACKAGE \
 	&& apt-get clean \
 	
 	# Download HBase
