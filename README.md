@@ -1,2 +1,2 @@
-# DockerBuilds
-This repository is only for Docker Hbase related builds.
+# Instruction
+Pls checkout each branch to get different versions of HBase dockerfile.
