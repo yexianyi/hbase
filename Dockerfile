@@ -26,6 +26,9 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& apt-get install -y wget ssh rsync\
 	&& apt-get clean \
 	&& apt-get autoremove \
+
+	# Config SSH
+	&& sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config \
 	
 	# Install Oracle JDK
 	&& mkdir /usr/lib/java \
@@ -44,8 +47,8 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	#Config Hadoop
 	&& cd $HADOOP_HOME/etc/hadoop \
 	&& rm -f core-site.xml hdfs-site.xml \
-	&& wget https://raw.githubusercontent.com/yexianyi/hbase/standalone-1.2.3/conf/hbase-env.sh \
-	&& wget https://raw.githubusercontent.com/yexianyi/hbase/standalone-1.2.3/conf/hbase-site.xml \
+	&& wget https://raw.githubusercontent.com/yexianyi/hbase/pseudo-clustering-1.2.3/etc/hadoop/core-site.xml \
+	&& wget https://raw.githubusercontent.com/yexianyi/hbase/pseudo-clustering-1.2.3/etc/hadoop/hdfs-site.xml \
 
 	# Install HBase
 	&& cd /home \
