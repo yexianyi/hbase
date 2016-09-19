@@ -38,7 +38,7 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& rm ./$JDK_PACKAGE \
 
 	#Install Hadoop
-	&& cd /home
+	&& cd /home \
 	&& wget http://www-eu.apache.org/dist/hadoop/common/stable/$HADOOP_PACKAGE \
 	&& tar xzvf $HADOOP_PACKAGE \
 	&& rm -f $HADOOP_PACKAGE \
