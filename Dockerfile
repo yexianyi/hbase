@@ -29,6 +29,7 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 
 	# Config SSH
 	&& sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config \
+	&& echo "root:root" | chpasswd \
 	
 	# Install Oracle JDK
 	&& mkdir /usr/lib/java \
