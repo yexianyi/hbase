@@ -51,6 +51,10 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& wget https://raw.githubusercontent.com/yexianyi/hbase/pseudo-clustering-1.2.3/etc/hadoop/core-site.xml \
 	&& wget https://raw.githubusercontent.com/yexianyi/hbase/pseudo-clustering-1.2.3/etc/hadoop/hdfs-site.xml \
 	&& sed -i 's#${JAVA_HOME}#'$JAVA_HOME'#g' ./hadoop-env.sh \
+	&& echo 'export JAVA_HOME='$JAVA_HOME >>  ~/.bashrc \
+	&& echo 'export HBASE_HOME='$HBASE_HOME >>  ~/.bashrc \
+	&& echo 'export HADOOP_HOME='$HADOOP_HOME >>  ~/.bashrc \
+	&& echo 'export PATH='$PATH >>  ~/.bashrc \
 
 	# Install HBase
 	&& cd /home \
