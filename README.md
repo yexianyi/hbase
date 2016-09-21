@@ -16,5 +16,6 @@
 1. service ssh start </br>
 2. hdfs namenode -format
 3. start-dfs.sh
+4. start-hbase.sh
 
 
