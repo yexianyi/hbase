@@ -12,7 +12,7 @@
 + PWD=/
 
 ##Launch Service
-###pseudo-clustering-1.2.3
+###For pseudo-clustering-1.2.3
 1. service ssh start </br>
 2. hdfs namenode -format
 3. start-dfs.sh
