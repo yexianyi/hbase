@@ -29,6 +29,7 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 
 	# Config SSH
 	&& sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config \
+	&& service ssh start \
 	&& echo "root:root" | chpasswd \
 	&& mkdir -p ~/.ssh \
 	&& cd ~/.ssh \
