@@ -37,7 +37,7 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& cat root.key.pub >> authorized_keys \
 	&& chmod 600 authorized_keys \
 	&& rm root.key.pub \
-	&& sshpass -p "root" scp localhost:.ssh/root.key myserver.rsa \
+	&& sshpass -p "root" scp -o "StrictHostKeyChecking no" localhost:.ssh/root.key myserver.rsa \
 	&& chmod 600 myserver.rsa \
 	&& echo "HOST localhost" >> config \
 	&& echo "Hostname localhost" >> config \
