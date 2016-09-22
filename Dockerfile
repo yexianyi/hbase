@@ -23,7 +23,7 @@ MAINTAINER Xianyi Ye <https://cn.linkedin.com/in/yexianyi>
 
 RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list \
 	&& apt-get update \
-	&& apt-get install -y wget ssh rsync\
+	&& apt-get install -y wget ssh sshpass rsync\
 	&& apt-get clean \
 	&& apt-get autoremove \
 
