@@ -81,12 +81,11 @@ RUN sed -i 's/archive.ubuntu.com/hk.archive.ubuntu.com/g' /etc/apt/sources.list 
 	&& wget https://raw.githubusercontent.com/yexianyi/hbase/standalone-1.2.3/conf/hbase-env.sh \
 	&& wget https://raw.githubusercontent.com/yexianyi/hbase/standalone-1.2.3/conf/hbase-site.xml
 
-# NameNode 50070
-# HMaster 60000
-# HMaster Info Web UI 60010
-# Region Server 60020 / 60030
+# HDFS Web Interface 50070
+# Master Web Interface 16010
+# RegionServer Web Interface 16030
 # Zookeeper 2181
-EXPOSE 50070 60000 60010 60020 60030 2181
+EXPOSE 50070 16010 16030 8088 2181
 CMD service ssh start \
     && hdfs namenode -format \
     && start-dfs.sh \ 
